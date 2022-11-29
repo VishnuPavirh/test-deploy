@@ -6,6 +6,8 @@ metadata:
     app: bgd
   name: bgd
   namespace: bgd
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"httpd:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bgd\")].image"}]'
 spec:
   replicas: 1
   selector:
@@ -19,7 +21,7 @@ spec:
         app: bgd
     spec:
       containers:
-      - image: quay.io/rhdevelopers/bgd:1.0.0
+      - image: image-registry.openshift-image-registry.svc:5000/bgd/httpd 
         name: bgd
         env:
         - name: COLOR
