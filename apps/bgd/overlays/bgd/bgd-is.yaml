@@ -9,7 +9,7 @@ spec:
   tags:
   - from:
       kind: DockerImage
-      name: image-registry.openshift-image-registry.svc:5000/default/httpd
+      name: image-registry.openshift-image-registry.svc:5000/bgd/httpd
     importPolicy:
       scheduled: true
     name: latest
