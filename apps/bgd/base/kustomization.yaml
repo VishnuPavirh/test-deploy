@@ -3,3 +3,5 @@ resources:
 - bgd-svc.yaml
 - bgd-deployment.yaml
 - bgd-route.yaml
+- oadp-operator.yaml
+- og-group.yaml

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-adp
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-adp
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps/bgd/overlays/oadp-operator
+    repoURL: https://github.com/VishnuPavirh/test-deploy
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
